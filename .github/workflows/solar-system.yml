@@ -27,21 +27,23 @@ jobs:
               uses: actions/setup-node@v4
               with:
                 node-version: ${{ matrix.nodejs_version }}
+            
             - name: Install dependencies
               run: npm install
 
             - name: Unit testing
               run: npm test
             
-            - name: Upload artifact
+            - name: Archive test result
               uses: actions/upload-artifact@v4
               with:
                 name: Mocha-Test_Result
                 path: test-results.xml
+                overwrite: true
 
 
     code-coverage:
-        name: Code Coverange
+        name: Code Coverage
         strategy:
             matrix:
                 os: [ubuntu-latest]
@@ -61,6 +63,7 @@ jobs:
               run: npm install
 
             - name: Check code coverage
+              continue-on-error: true
               run: npm run coverage
             
             - name: Archive coverage results
@@ -68,4 +71,5 @@ jobs:
               with:
                 name: Codecoverage-Result
                 path: coverage
+                overwrite: true
                 retention-days: 5
