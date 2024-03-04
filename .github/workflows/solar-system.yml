@@ -112,6 +112,12 @@ jobs:
             push: false
             tags: ${{ env.DOCKERHUB_USERNAME }}/solar-system:${{ github.sha }}
 
+        - name: echo envs
+          run: |
+            echo $MONGO_URI
+            echo $MONGO_USERNAME
+            echo $MONGO_PASSWORD
+
         - name: Docker Image Testing
           run: |
             docker images
