@@ -9,7 +9,7 @@ env:
         MONGO_USERNAME: ${{ vars.MONGO_USERNAME }}
         MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PAT }}
-        DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
 jobs:
     unit-testing:
         name: Unit Testing
