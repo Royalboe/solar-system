@@ -117,6 +117,7 @@ jobs:
             echo $MONGO_URI
             echo $MONGO_USERNAME
             echo $MONGO_PASSWORD
+            echo $DOCKERHUB_USERNAME
 
         - name: Docker Image Testing
           run: |
