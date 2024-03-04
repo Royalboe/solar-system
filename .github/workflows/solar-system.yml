@@ -104,3 +104,12 @@ jobs:
           with:
             username: ${{ env.DOCKERHUB_USERNAME }}
             password: ${{ env.DOCKERHUB_PASSWORD }}
+
+        - name: Docker Building for testing
+          uses: docker/build-push-action@v5
+          with:
+            context: .
+            push: false
+            tags: ${{ env.DOCKERHUB_USERNAME }}/solar-system:${{github.sha}}
+
+        
