@@ -13,6 +13,16 @@ env:
 jobs:
     unit-testing:
         name: Unit Testing
+        env:  
+          MONGO_URI: 'mongodb//localhost:27017/superData'
+          MONGO_USERNAME: non-prod-user
+          MONGO_PASSWORD: non-prod-password
+        services:
+          mongo_db:
+            image: siddharth67/mongo-db:non-prod
+            ports:
+              - 27017:27017
+            
         strategy:
             matrix:
                 os: [ubuntu-latest]
@@ -51,7 +61,6 @@ jobs:
                 name: Mocha-Test_Result
                 path: test-results.xml
                 overwrite: true
-
 
     code-coverage:
         name: Code Coverage
