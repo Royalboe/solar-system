@@ -10,6 +10,7 @@ env:
         MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
         DOCKERHUB_PASSWORD: ${{ secrets.DOCKER_PAT }}
         DOCKERHUB_USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+        KUBECONFIG: ${{ secrets.KUBECONFIG }}
 jobs:
     unit-testing:
         name: Unit Testing
@@ -192,7 +193,7 @@ jobs:
           uses: azure/k8s-set-context@v4
           with:
             method: kubeconfig
-            kubeconfig: ${{secrets.KUBECONFIG}}
+            kubeconfig: ${{ env.KUBECONFIG }}
             ##context: <context name> # current-context from kubeconfig is used as default
 
         - name: Fetch Kubernetes Cluster Details
