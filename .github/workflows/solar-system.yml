@@ -197,6 +197,7 @@ jobs:
             ##context: <context name> # current-context from kubeconfig is used as default
 
         - name: Fetch Kubernetes Cluster Details
+          continue-on-error: true
           run: |
             kubectl version --short -o yaml
             echo ---------------------------------------------------------------
