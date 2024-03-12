@@ -4,3 +4,5 @@ solar-system.png
 .talismanrc
 coverage
 test-results.xml
+amazon-eks-nodegroup.yaml
+.github/workflows/kube-config
